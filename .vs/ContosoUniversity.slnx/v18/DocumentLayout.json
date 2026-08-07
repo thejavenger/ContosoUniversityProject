@@ -3,24 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\msnapoles\\source\\repos\\ContosoUniversity\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{10013882-8CC2-4224-A41B-13EB83C83528}|ContosoUniversity\\ContosoUniversity.csproj|c:\\users\\msnapoles\\source\\repos\\contosouniversity\\contosouniversity\\views\\student\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{10013882-8CC2-4224-A41B-13EB83C83528}|ContosoUniversity\\ContosoUniversity.csproj|solutionrelative:contosouniversity\\views\\student\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{10013882-8CC2-4224-A41B-13EB83C83528}|ContosoUniversity\\ContosoUniversity.csproj|c:\\users\\msnapoles\\source\\repos\\contosouniversity\\contosouniversity\\dal\\schoolconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10013882-8CC2-4224-A41B-13EB83C83528}|ContosoUniversity\\ContosoUniversity.csproj|solutionrelative:contosouniversity\\dal\\schoolconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{10013882-8CC2-4224-A41B-13EB83C83528}|ContosoUniversity\\ContosoUniversity.csproj|C:\\Users\\msnapoles\\source\\repos\\ContosoUniversity\\contosouniversity\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{10013882-8CC2-4224-A41B-13EB83C83528}|ContosoUniversity\\ContosoUniversity.csproj|c:\\users\\msnapoles\\source\\repos\\contosouniversity\\contosouniversity\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10013882-8CC2-4224-A41B-13EB83C83528}|ContosoUniversity\\ContosoUniversity.csproj|solutionrelative:contosouniversity\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10013882-8CC2-4224-A41B-13EB83C83528}|ContosoUniversity\\ContosoUniversity.csproj|c:\\users\\msnapoles\\source\\repos\\contosouniversity\\contosouniversity\\dal\\schoolinterceptortransienterrors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10013882-8CC2-4224-A41B-13EB83C83528}|ContosoUniversity\\ContosoUniversity.csproj|solutionrelative:contosouniversity\\dal\\schoolinterceptortransienterrors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10013882-8CC2-4224-A41B-13EB83C83528}|ContosoUniversity\\ContosoUniversity.csproj|c:\\users\\msnapoles\\source\\repos\\contosouniversity\\contosouniversity\\dal\\schoolinterceptorlogging.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10013882-8CC2-4224-A41B-13EB83C83528}|ContosoUniversity\\ContosoUniversity.csproj|solutionrelative:contosouniversity\\dal\\schoolinterceptorlogging.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10013882-8CC2-4224-A41B-13EB83C83528}|ContosoUniversity\\ContosoUniversity.csproj|c:\\users\\msnapoles\\source\\repos\\contosouniversity\\contosouniversity\\logging\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10013882-8CC2-4224-A41B-13EB83C83528}|ContosoUniversity\\ContosoUniversity.csproj|solutionrelative:contosouniversity\\logging\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10013882-8CC2-4224-A41B-13EB83C83528}|ContosoUniversity\\ContosoUniversity.csproj|c:\\users\\msnapoles\\source\\repos\\contosouniversity\\contosouniversity\\logging\\ilogger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10013882-8CC2-4224-A41B-13EB83C83528}|ContosoUniversity\\ContosoUniversity.csproj|solutionrelative:contosouniversity\\logging\\ilogger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10013882-8CC2-4224-A41B-13EB83C83528}|ContosoUniversity\\ContosoUniversity.csproj|c:\\users\\msnapoles\\source\\repos\\contosouniversity\\contosouniversity\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{10013882-8CC2-4224-A41B-13EB83C83528}|ContosoUniversity\\ContosoUniversity.csproj|solutionrelative:contosouniversity\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{10013882-8CC2-4224-A41B-13EB83C83528}|ContosoUniversity\\ContosoUniversity.csproj|c:\\users\\msnapoles\\source\\repos\\contosouniversity\\contosouniversity\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{10013882-8CC2-4224-A41B-13EB83C83528}|ContosoUniversity\\ContosoUniversity.csproj|solutionrelative:contosouniversity\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{10013882-8CC2-4224-A41B-13EB83C83528}|ContosoUniversity\\ContosoUniversity.csproj|C:\\Users\\msnapoles\\source\\repos\\ContosoUniversity\\contosouniversity\\views\\student\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{10013882-8CC2-4224-A41B-13EB83C83528}|ContosoUniversity\\ContosoUniversity.csproj|solutionrelative:contosouniversity\\views\\student\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{10013882-8CC2-4224-A41B-13EB83C83528}|ContosoUniversity\\ContosoUniversity.csproj|C:\\Users\\msnapoles\\source\\repos\\ContosoUniversity\\contosouniversity\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{10013882-8CC2-4224-A41B-13EB83C83528}|ContosoUniversity\\ContosoUniversity.csproj|solutionrelative:contosouniversity\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\msnapoles\\source\\repos\\ContosoUniversity\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,71 +42,111 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\msnapoles\\source\\repos\\ContosoUniversity\\ContosoUniversity\\Views\\Student\\Index.cshtml",
-              "RelativeDocumentMoniker": "ContosoUniversity\\Views\\Student\\Index.cshtml",
-              "ToolTip": "C:\\Users\\msnapoles\\source\\repos\\ContosoUniversity\\ContosoUniversity\\Views\\Student\\Index.cshtml",
-              "RelativeToolTip": "ContosoUniversity\\Views\\Student\\Index.cshtml",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABsAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-08-07T00:59:17.579Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Delete.cshtml",
-              "DocumentMoniker": "C:\\Users\\msnapoles\\source\\repos\\ContosoUniversity\\ContosoUniversity\\Views\\Student\\Delete.cshtml",
-              "RelativeDocumentMoniker": "ContosoUniversity\\Views\\Student\\Delete.cshtml",
-              "ToolTip": "C:\\Users\\msnapoles\\source\\repos\\ContosoUniversity\\ContosoUniversity\\Views\\Student\\Delete.cshtml",
-              "RelativeToolTip": "ContosoUniversity\\Views\\Student\\Delete.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-08-06T09:10:46.081Z",
+              "DocumentIndex": 1,
+              "Title": "Global.asax.cs",
+              "DocumentMoniker": "C:\\Users\\msnapoles\\source\\repos\\ContosoUniversity\\ContosoUniversity\\Global.asax.cs",
+              "RelativeDocumentMoniker": "ContosoUniversity\\Global.asax.cs",
+              "ToolTip": "C:\\Users\\msnapoles\\source\\repos\\ContosoUniversity\\ContosoUniversity\\Global.asax.cs*",
+              "RelativeToolTip": "ContosoUniversity\\Global.asax.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-07T08:16:03.482Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Student.cs",
-              "DocumentMoniker": "C:\\Users\\msnapoles\\source\\repos\\ContosoUniversity\\ContosoUniversity\\Models\\Student.cs",
-              "RelativeDocumentMoniker": "ContosoUniversity\\Models\\Student.cs",
-              "ToolTip": "C:\\Users\\msnapoles\\source\\repos\\ContosoUniversity\\ContosoUniversity\\Models\\Student.cs",
-              "RelativeToolTip": "ContosoUniversity\\Models\\Student.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAjAAAAAAAAAA==",
+              "Title": "SchoolInterceptorTransientErrors.cs",
+              "DocumentMoniker": "C:\\Users\\msnapoles\\source\\repos\\ContosoUniversity\\ContosoUniversity\\DAL\\SchoolInterceptorTransientErrors.cs",
+              "RelativeDocumentMoniker": "ContosoUniversity\\DAL\\SchoolInterceptorTransientErrors.cs",
+              "ToolTip": "C:\\Users\\msnapoles\\source\\repos\\ContosoUniversity\\ContosoUniversity\\DAL\\SchoolInterceptorTransientErrors.cs*",
+              "RelativeToolTip": "ContosoUniversity\\DAL\\SchoolInterceptorTransientErrors.cs*",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAiwDYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-06T09:07:47.216Z",
+              "WhenOpened": "2026-08-07T08:15:12.061Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "StudentController.cs",
-              "DocumentMoniker": "C:\\Users\\msnapoles\\source\\repos\\ContosoUniversity\\ContosoUniversity\\Controllers\\StudentController.cs",
-              "RelativeDocumentMoniker": "ContosoUniversity\\Controllers\\StudentController.cs",
-              "ToolTip": "C:\\Users\\msnapoles\\source\\repos\\ContosoUniversity\\ContosoUniversity\\Controllers\\StudentController.cs",
-              "RelativeToolTip": "ContosoUniversity\\Controllers\\StudentController.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAADEAAAAmAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "SchoolInterceptorLogging.cs",
+              "DocumentMoniker": "C:\\Users\\msnapoles\\source\\repos\\ContosoUniversity\\ContosoUniversity\\DAL\\SchoolInterceptorLogging.cs",
+              "RelativeDocumentMoniker": "ContosoUniversity\\DAL\\SchoolInterceptorLogging.cs",
+              "ToolTip": "C:\\Users\\msnapoles\\source\\repos\\ContosoUniversity\\ContosoUniversity\\DAL\\SchoolInterceptorLogging.cs*",
+              "RelativeToolTip": "ContosoUniversity\\DAL\\SchoolInterceptorLogging.cs*",
+              "ViewState": "AgIAACEAAAAAAAAAAAAiwE0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-06T09:03:04.906Z",
+              "WhenOpened": "2026-08-07T08:14:39.111Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SchoolConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\msnapoles\\source\\repos\\ContosoUniversity\\ContosoUniversity\\DAL\\SchoolConfiguration.cs",
+              "RelativeDocumentMoniker": "ContosoUniversity\\DAL\\SchoolConfiguration.cs",
+              "ToolTip": "C:\\Users\\msnapoles\\source\\repos\\ContosoUniversity\\ContosoUniversity\\DAL\\SchoolConfiguration.cs*",
+              "RelativeToolTip": "ContosoUniversity\\DAL\\SchoolConfiguration.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-07T08:08:59.722Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\msnapoles\\source\\repos\\ContosoUniversity\\ContosoUniversity\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "ContosoUniversity\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\msnapoles\\source\\repos\\ContosoUniversity\\ContosoUniversity\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "ContosoUniversity\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "Logger.cs",
+              "DocumentMoniker": "C:\\Users\\msnapoles\\source\\repos\\ContosoUniversity\\ContosoUniversity\\Logging\\Logger.cs",
+              "RelativeDocumentMoniker": "ContosoUniversity\\Logging\\Logger.cs",
+              "ToolTip": "C:\\Users\\msnapoles\\source\\repos\\ContosoUniversity\\ContosoUniversity\\Logging\\Logger.cs*",
+              "RelativeToolTip": "ContosoUniversity\\Logging\\Logger.cs*",
+              "ViewState": "AgIAADgAAAAAAAAAAAAgwE8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-06T09:03:02.896Z"
+              "WhenOpened": "2026-08-07T08:13:25.771Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ILogger.cs",
+              "DocumentMoniker": "C:\\Users\\msnapoles\\source\\repos\\ContosoUniversity\\ContosoUniversity\\Logging\\ILogger.cs",
+              "RelativeDocumentMoniker": "ContosoUniversity\\Logging\\ILogger.cs",
+              "ToolTip": "C:\\Users\\msnapoles\\source\\repos\\ContosoUniversity\\ContosoUniversity\\Logging\\ILogger.cs*",
+              "RelativeToolTip": "ContosoUniversity\\Logging\\ILogger.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-07T08:12:56.947Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "StudentController.cs",
+              "DocumentMoniker": "C:\\Users\\msnapoles\\source\\repos\\ContosoUniversity\\ContosoUniversity\\Controllers\\StudentController.cs",
+              "RelativeDocumentMoniker": "ContosoUniversity\\Controllers\\StudentController.cs",
+              "ToolTip": "C:\\Users\\msnapoles\\source\\repos\\ContosoUniversity\\ContosoUniversity\\Controllers\\StudentController.cs*",
+              "RelativeToolTip": "ContosoUniversity\\Controllers\\StudentController.cs*",
+              "ViewState": "AgIAAFgAAAAAAAAAAAArwG0AAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-07T08:09:35.644Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Users\\msnapoles\\source\\repos\\ContosoUniversity\\.gitignore",
+              "RelativeDocumentMoniker": ".gitignore",
+              "ToolTip": "C:\\Users\\msnapoles\\source\\repos\\ContosoUniversity\\.gitignore",
+              "RelativeToolTip": ".gitignore",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-08-07T08:04:09.205Z",
+              "EditorCaption": ""
             }
           ]
         }
