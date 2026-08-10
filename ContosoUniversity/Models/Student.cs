@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 using System.ComponentModel;
 
@@ -11,17 +9,11 @@ namespace ContosoUniversity.Models
     {
         public int ID { get; set; }
 
-        //[DisplayName("Last Name")]
-
-        [StringLength(50)]
+        [DisplayName("Last Name")]
         public string LastName { get; set; }
-        //[DisplayName("First Name")]
-        [StringLength(50, ErrorMessage = "First name cannot be longer than 50 characters.")]
-        [Column("FirstName")]
+        [DisplayName("First Name")]
         public string FirstMidName { get; set; }
-        //[DisplayName("Enrollment Date")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayName("Enrollment Date")]
         public DateTime EnrollmentDate { get; set; }
         public string Secret { get; set; }
 
