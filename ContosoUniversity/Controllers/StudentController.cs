@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -10,6 +9,7 @@ using System.Web.Mvc;
 using ContosoUniversity.DAL;
 using ContosoUniversity.Models;
 using PagedList;
+using System.Data.Entity.Infrastructure;
 
 namespace ContosoUniversity.Controllers
 {
@@ -21,7 +21,6 @@ namespace ContosoUniversity.Controllers
         public ViewResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
             ViewBag.CurrentSort = sortOrder;
-            ViewBag.FirstnameSortParm = sortOrder == "Firstname" ? "firstname_desc" : "Firstname";
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
 
@@ -45,12 +44,6 @@ namespace ContosoUniversity.Controllers
             }
             switch (sortOrder)
             {
-                case "Firstname":
-                    students = students.OrderBy(s => s.FirstMidName);
-                    break;
-                case "firstname_desc":
-                    students = students.OrderByDescending(s => s.FirstMidName);
-                    break;
                 case "name_desc":
                     students = students.OrderByDescending(s => s.LastName);
                     break;
@@ -65,7 +58,7 @@ namespace ContosoUniversity.Controllers
                     break;
             }
 
-            int pageSize = 10;
+            int pageSize = 3;
             int pageNumber = (page ?? 1);
             return View(students.ToPagedList(pageNumber, pageSize));
         }
