@@ -1,4 +1,4 @@
 .vs
-ContosoUniversity/ContosoUniversity.csproj
-ContosoUniversity/ContosoUniversity.csproj.user
-ContosoUniversity/obj/Debug
+bin/
+obj/
+*.user
