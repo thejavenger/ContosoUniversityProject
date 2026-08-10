@@ -20,9 +20,9 @@
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort>44343</IISExpressSSLPort>
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
-    <IISExpressUseClassicPipelineMode />
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -149,9 +149,24 @@
     <Compile Include="Migrations\202608100459173_InitialCreate.Designer.cs">
       <DependentUpon>202608100459173_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202608100616177_MaxLengthOnNames.cs" />
+    <Compile Include="Migrations\202608100616177_MaxLengthOnNames.Designer.cs">
+      <DependentUpon>202608100616177_MaxLengthOnNames.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202608100619052_ColumnFirstName.cs" />
+    <Compile Include="Migrations\202608100619052_ColumnFirstName.Designer.cs">
+      <DependentUpon>202608100619052_ColumnFirstName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202608100642326_ComplexDataModel.cs" />
+    <Compile Include="Migrations\202608100642326_ComplexDataModel.Designer.cs">
+      <DependentUpon>202608100642326_ComplexDataModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Enrollment.cs" />
+    <Compile Include="Models\Instructor.cs" />
+    <Compile Include="Models\OfficeAssignment.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\EnrollmentDateGroup.cs" />
@@ -247,6 +262,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202608100459173_InitialCreate.resx">
       <DependentUpon>202608100459173_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202608100616177_MaxLengthOnNames.resx">
+      <DependentUpon>202608100616177_MaxLengthOnNames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202608100619052_ColumnFirstName.resx">
+      <DependentUpon>202608100619052_ColumnFirstName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202608100642326_ComplexDataModel.resx">
+      <DependentUpon>202608100642326_ComplexDataModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
