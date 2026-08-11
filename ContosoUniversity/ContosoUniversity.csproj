@@ -135,6 +135,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InstructorController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="DAL\SchoolConfiguration.cs" />
     <Compile Include="DAL\SchoolContext.cs" />
@@ -146,21 +147,21 @@
     </Compile>
     <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Logging\Logger.cs" />
-    <Compile Include="Migrations\202608101129456_InitialCreate.cs" />
-    <Compile Include="Migrations\202608101129456_InitialCreate.Designer.cs">
-      <DependentUpon>202608101129456_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202608110056521_InitialCreate.cs" />
+    <Compile Include="Migrations\202608110056521_InitialCreate.Designer.cs">
+      <DependentUpon>202608110056521_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202608101130470_MaxLengthOnNames.cs" />
-    <Compile Include="Migrations\202608101130470_MaxLengthOnNames.Designer.cs">
-      <DependentUpon>202608101130470_MaxLengthOnNames.cs</DependentUpon>
+    <Compile Include="Migrations\202608110058219_MaxLengthOnNames.cs" />
+    <Compile Include="Migrations\202608110058219_MaxLengthOnNames.Designer.cs">
+      <DependentUpon>202608110058219_MaxLengthOnNames.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202608101132392_ColumnFirstName.cs" />
-    <Compile Include="Migrations\202608101132392_ColumnFirstName.Designer.cs">
-      <DependentUpon>202608101132392_ColumnFirstName.cs</DependentUpon>
+    <Compile Include="Migrations\202608110102220_ColumnFirstName.cs" />
+    <Compile Include="Migrations\202608110102220_ColumnFirstName.Designer.cs">
+      <DependentUpon>202608110102220_ColumnFirstName.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202608101133143_ComplexDataModel.cs" />
-    <Compile Include="Migrations\202608101133143_ComplexDataModel.Designer.cs">
-      <DependentUpon>202608101133143_ComplexDataModel.cs</DependentUpon>
+    <Compile Include="Migrations\202608110109309_ComplexDataModel.cs" />
+    <Compile Include="Migrations\202608110109309_ComplexDataModel.Designer.cs">
+      <DependentUpon>202608110109309_ComplexDataModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Course.cs" />
@@ -171,6 +172,7 @@
     <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\EnrollmentDateGroup.cs" />
+    <Compile Include="ViewModels\InstructorIndexData.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
@@ -234,6 +236,11 @@
     <Content Include="Views\Course\Delete.cshtml" />
     <Content Include="Views\Course\Details.cshtml" />
     <Content Include="Views\Course\Edit.cshtml" />
+    <Content Include="Views\Instructor\Create.cshtml" />
+    <Content Include="Views\Instructor\Delete.cshtml" />
+    <Content Include="Views\Instructor\Details.cshtml" />
+    <Content Include="Views\Instructor\Edit.cshtml" />
+    <Content Include="Views\Instructor\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -266,17 +273,17 @@
     <Content Include="Scripts\jquery-3.7.0.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202608101129456_InitialCreate.resx">
-      <DependentUpon>202608101129456_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202608110056521_InitialCreate.resx">
+      <DependentUpon>202608110056521_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202608101130470_MaxLengthOnNames.resx">
-      <DependentUpon>202608101130470_MaxLengthOnNames.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202608110058219_MaxLengthOnNames.resx">
+      <DependentUpon>202608110058219_MaxLengthOnNames.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202608101132392_ColumnFirstName.resx">
-      <DependentUpon>202608101132392_ColumnFirstName.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202608110102220_ColumnFirstName.resx">
+      <DependentUpon>202608110102220_ColumnFirstName.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202608101133143_ComplexDataModel.resx">
-      <DependentUpon>202608101133143_ComplexDataModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202608110109309_ComplexDataModel.resx">
+      <DependentUpon>202608110109309_ComplexDataModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
