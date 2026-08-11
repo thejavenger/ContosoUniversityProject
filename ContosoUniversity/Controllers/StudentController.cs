@@ -22,6 +22,7 @@ namespace ContosoUniversity.Controllers
         {
             ViewBag.CurrentSort = sortOrder;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.FirstNameSortParm = sortOrder == "firstname" ? "firstname_desc" : "firstname";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
 
             if (searchString != null)
@@ -44,21 +45,27 @@ namespace ContosoUniversity.Controllers
             }
             switch (sortOrder)
             {
-                case "name_desc":
-                    students = students.OrderByDescending(s => s.LastName);
+                case "firstname_desc":
+                    students = students.OrderByDescending(s => s.FirstMidName);
+                    break;
+                case "firstname":
+                    students = students.OrderBy(s => s.FirstMidName);
+                    break;
+                case "date_desc":
+                    students = students.OrderByDescending(s => s.EnrollmentDate);
                     break;
                 case "Date":
                     students = students.OrderBy(s => s.EnrollmentDate);
                     break;
-                case "date_desc":
-                    students = students.OrderByDescending(s => s.EnrollmentDate);
+                case "name_desc":
+                    students = students.OrderByDescending(s => s.LastName);
                     break;
                 default:  // Name ascending 
                     students = students.OrderBy(s => s.LastName);
                     break;
             }
 
-            int pageSize = 3;
+            int pageSize = 15;
             int pageNumber = (page ?? 1);
             return View(students.ToPagedList(pageNumber, pageSize));
         }
