@@ -6,13 +6,9 @@
     ViewBag.Title = "Students";
 }
 
-<h2>Students</h2>
+<h2>Deleted Students</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create") | 
-    @Html.ActionLink("View Deleted", "ViewDeleted")
-</p>
-@using (Html.BeginForm("Index", "Student", FormMethod.Get))
+@using (Html.BeginForm("ViewDeleted", "Student", FormMethod.Get))
 {
     <p>
         Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
@@ -22,13 +18,13 @@
 <table class="table">
     <tr>
         <th>
-            @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+            @Html.ActionLink("Last Name", "ViewDeleted", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            @Html.ActionLink("First Name", "Index", new { sortOrder = ViewBag.FirstNameSortParm, currentFilter = ViewBag.CurrentFilter })
+            @Html.ActionLink("First Name", "ViewDeleted", new { sortOrder = ViewBag.FirstNameSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            @Html.ActionLink("Enrollment Date", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })
+            @Html.ActionLink("Enrollment Date", "ViewDeleted", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th></th>
     </tr>
@@ -46,9 +42,7 @@
                 @Html.DisplayFor(modelItem => item.EnrollmentDate)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "SoftDelete", new { id = item.ID })
+                @Html.ActionLink("Restore", "RestoreDeleted", new { id = item.ID })
             </td>
         </tr>
     }
@@ -58,4 +52,5 @@
 Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
 
 @Html.PagedListPager(Model, page => Url.Action("Index",
-    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })) 
+@Html.ActionLink("Back to List", "Index")

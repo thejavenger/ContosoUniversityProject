@@ -20,7 +20,7 @@ namespace ContosoUniversity.Controllers
         // GET: Department
         public async Task<ActionResult> Index()
         {
-            var departments = db.Departments.Include(d => d.Administrator);
+            var departments = db.Departments.Where(d => d.IsActive).Include(d => d.Administrator);
             return View(await departments.ToListAsync());
         }
 
@@ -162,6 +162,93 @@ namespace ContosoUniversity.Controllers
             }
             ViewBag.InstructorID = new SelectList(db.Instructors, "ID", "FullName", departmentToUpdate.InstructorID);
             return View(departmentToUpdate);
+        }
+
+        public async Task<ActionResult> SoftDelete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Department department = await db.Departments.FindAsync(id);
+            if (department == null)
+            {
+                return HttpNotFound();
+            }
+            return View(department);
+        }
+
+        [HttpPost, ActionName("SoftDelete")]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> SoftDeletePost(int? id)
+        {
+
+            Department department = await db.Departments.FindAsync(id);
+
+            department.IsActive = false;
+
+            db.Entry(department).State = System.Data.Entity.EntityState.Modified;
+
+            try
+            {
+                db.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+            catch (RetryLimitExceededException /* dex */)
+            {
+                //Log the error (uncomment dex variable name and add a line here to write a log.
+                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
+            }
+
+            return View(department);
+        }
+
+        public async Task<ActionResult> ViewDeleted(int? SelectedDepartment)
+        {
+
+            var departments = db.Departments.Where(d => !d.IsActive).Include(d => d.Administrator);
+            return View(await departments.ToListAsync());
+        }
+
+        public async Task<ActionResult> RestoreDeleted(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Department department = await db.Departments.FindAsync(id);
+            if (department == null)
+            {
+                return HttpNotFound();
+            }
+            return View(department);
+        }
+
+        [HttpPost, ActionName("RestoreDeleted")]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> RestoreDeletedPost(int? id)
+        {
+
+            Department department = await db.Departments.FindAsync(id);
+
+            department.IsActive = true;
+
+            db.Entry(department).State = System.Data.Entity.EntityState.Modified;
+
+            try
+            {
+                db.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+            catch (RetryLimitExceededException /* dex */)
+            {
+                //Log the error (uncomment dex variable name and add a line here to write a log.
+                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
+            }
+
+            return View(department);
         }
 
         // GET: Department/Delete/5

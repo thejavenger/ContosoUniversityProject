@@ -4,12 +4,8 @@
     ViewBag.Title = "Departments";
 }
 
-<h2>Departments</h2>
+<h2>Deleted Departments</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create") |
-    @Html.ActionLink("View Deleted", "ViewDeleted")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -27,7 +23,7 @@
     @foreach (var item in Model)
     {
         <tr>
-            
+
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
@@ -41,11 +37,14 @@
                 @Html.DisplayFor(modelItem => item.Administrator.FullName)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.DepartmentID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.DepartmentID }) |
-                @Html.ActionLink("Delete", "SoftDelete", new { id = item.DepartmentID })
+                @Html.ActionLink("Restore", "RestoreDeleted", new { id = item.DepartmentID })
             </td>
         </tr>
     }
 
 </table>
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

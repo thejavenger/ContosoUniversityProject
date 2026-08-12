@@ -1,0 +1,56 @@
+﻿@model ContosoUniversity.Models.Instructor
+
+@{
+    ViewBag.Title = "RestoreDeleted";
+}
+
+<h2>Restore Instructor</h2>
+
+<h3>Are you sure you want to restore this record?</h3>
+<div>
+    <h4>Instructor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstMidName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstMidName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HireDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HireDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OfficeAssignment.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OfficeAssignment.Location)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Restore" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "ViewDeleted")
+        </div>
+    }
+</div>

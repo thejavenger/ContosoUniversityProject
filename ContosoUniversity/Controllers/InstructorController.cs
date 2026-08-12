@@ -1,6 +1,7 @@
 ﻿using ContosoUniversity.DAL;
 using ContosoUniversity.Models;
 using ContosoUniversity.ViewModels;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -24,6 +25,7 @@ namespace ContosoUniversity.Controllers
             viewModel.Instructors = db.Instructors
                 .Include(i => i.OfficeAssignment)
                 .Include(i => i.Courses.Select(c => c.Department))
+                .Where(i => i.IsActive)
                 .OrderBy(i => i.LastName);
 
             if (id != null)
@@ -160,6 +162,130 @@ namespace ContosoUniversity.Controllers
             }
             PopulateAssignedCourseData(instructorToUpdate);
             return View(instructorToUpdate);
+        }
+
+        public ActionResult SoftDelete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Instructor instructor = db.Instructors.Find(id);
+            if (instructor == null)
+            {
+                return HttpNotFound();
+            }
+            return View(instructor);
+        }
+
+        [HttpPost, ActionName("SoftDelete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult SoftDeleteConfirmed(int? id)
+        {
+
+            Instructor instructor = db.Instructors
+                .Include(i => i.OfficeAssignment)
+                  .Where(i => i.ID == id)
+                  .Single();
+
+            instructor.IsActive = false;
+
+            db.Entry(instructor).State = System.Data.Entity.EntityState.Modified;
+
+            try
+            {
+                db.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+            catch (RetryLimitExceededException /* dex */)
+            {
+                //Log the error (uncomment dex variable name and add a line here to write a log.
+                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
+            }
+
+            return View(instructor);
+        }
+
+        public ActionResult ViewDeleted(int? id, int? courseID)
+        {
+            //var instructors = db.Instructors.Include(i => i.OfficeAssignment);
+            //return View(instructors.ToList());
+
+            var viewModel = new InstructorIndexData();
+            viewModel.Instructors = db.Instructors
+                .Include(i => i.OfficeAssignment)
+                .Include(i => i.Courses.Select(c => c.Department))
+                .Where(i => !i.IsActive)
+                .OrderBy(i => i.LastName);
+
+            if (id != null)
+            {
+                ViewBag.InstructorID = id.Value;
+                viewModel.Courses = viewModel.Instructors.Where(
+                    i => i.ID == id.Value).Single().Courses;
+            }
+
+
+            if (courseID != null)
+            {
+                ViewBag.CourseID = courseID.Value;
+                // Lazy loading
+                //viewModel.Enrollments = viewModel.Courses.Where(
+                //    x => x.CourseID == courseID).Single().Enrollments;
+                // Explicit loading
+                var selectedCourse = viewModel.Courses.Where(x => x.CourseID == courseID).Single();
+                db.Entry(selectedCourse).Collection(x => x.Enrollments).Load();
+                foreach (Enrollment enrollment in selectedCourse.Enrollments)
+                {
+                    db.Entry(enrollment).Reference(x => x.Student).Load();
+                }
+
+                viewModel.Enrollments = selectedCourse.Enrollments;
+            }
+
+            return View(viewModel);
+        }
+
+        public ActionResult RestoreDeleted(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Instructor instructor = db.Instructors.Find(id);
+            if (instructor == null)
+            {
+                return HttpNotFound();
+            }
+            return View(instructor);
+        }
+
+        [HttpPost, ActionName("RestoreDeleted")]
+        [ValidateAntiForgeryToken]
+        public ActionResult RestoreDeletedPost(int? id)
+        {
+
+            Instructor instructor = db.Instructors.Find(id);
+
+            instructor.IsActive = true;
+
+            db.Entry(instructor).State = System.Data.Entity.EntityState.Modified;
+
+            try
+            {
+                db.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+            catch (RetryLimitExceededException /* dex */)
+            {
+                //Log the error (uncomment dex variable name and add a line here to write a log.
+                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
+            }
+
+            return View(instructor);
         }
 
         // GET: Instructor/Delete/5

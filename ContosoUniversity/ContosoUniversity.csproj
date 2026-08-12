@@ -176,6 +176,10 @@
     <Compile Include="Migrations\202608110707105_Inheritance.Designer.cs">
       <DependentUpon>202608110707105_Inheritance.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202608120155371_AddIsActiveField.cs" />
+    <Compile Include="Migrations\202608120155371_AddIsActiveField.Designer.cs">
+      <DependentUpon>202608120155371_AddIsActiveField.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Department.cs" />
@@ -262,6 +266,18 @@
     <Content Include="Views\Department\Edit.cshtml" />
     <Content Include="Views\Department\Index.cshtml" />
     <Content Include="Views\Course\UpdateCourseCredits.cshtml" />
+    <Content Include="Views\Student\SoftDelete.cshtml" />
+    <Content Include="Views\Student\ViewDeleted.cshtml" />
+    <Content Include="Views\Student\RestoreDeleted.cshtml" />
+    <Content Include="Views\Instructor\SoftDelete.cshtml" />
+    <Content Include="Views\Instructor\RestoreDeleted.cshtml" />
+    <Content Include="Views\Instructor\ViewDeleted.cshtml" />
+    <Content Include="Views\Course\SoftDelete.cshtml" />
+    <Content Include="Views\Course\ViewDeleted.cshtml" />
+    <Content Include="Views\Course\RestoreDeleted.cshtml" />
+    <Content Include="Views\Department\SoftDelete.cshtml" />
+    <Content Include="Views\Department\ViewDeleted.cshtml" />
+    <Content Include="Views\Department\RestoreDeleted.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -314,6 +330,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202608110707105_Inheritance.resx">
       <DependentUpon>202608110707105_Inheritance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202608120155371_AddIsActiveField.resx">
+      <DependentUpon>202608120155371_AddIsActiveField.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

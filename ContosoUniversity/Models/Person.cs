@@ -29,5 +29,8 @@ namespace ContosoUniversity.Models
                 return LastName + ", " + FirstMidName;
             }
         }
+
+        public bool IsActive { get; set; }
+
     }
 }

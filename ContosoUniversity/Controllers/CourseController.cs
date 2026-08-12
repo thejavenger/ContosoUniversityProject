@@ -1,5 +1,7 @@
 ﻿using ContosoUniversity.DAL;
 using ContosoUniversity.Models;
+using PagedList;
+using System;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
@@ -20,7 +22,7 @@ namespace ContosoUniversity.Controllers
             int departmentID = SelectedDepartment.GetValueOrDefault();
 
             IQueryable<Course> courses = db.Courses
-                .Where(c => !SelectedDepartment.HasValue || c.DepartmentID == departmentID)
+                .Where(c => (!SelectedDepartment.HasValue || c.DepartmentID == departmentID) && c.IsActive)
                 .OrderBy(d => d.CourseID)
                 .Include(d => d.Department);
             var sql = courses.ToString();
@@ -113,7 +115,100 @@ namespace ContosoUniversity.Controllers
             return View(courseToUpdate);
         }
 
-        
+        public ActionResult SoftDelete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Course course = db.Courses.Find(id);
+            if (course == null)
+            {
+                return HttpNotFound();
+            }
+            return View(course);
+        }
+
+        [HttpPost, ActionName("SoftDelete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult SoftDeletePost(int? id)
+        {
+
+            Course course = db.Courses.Find(id);
+
+            course.IsActive = false;
+
+            db.Entry(course).State = System.Data.Entity.EntityState.Modified;
+
+            try
+            {
+                db.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+            catch (RetryLimitExceededException /* dex */)
+            {
+                //Log the error (uncomment dex variable name and add a line here to write a log.
+                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
+            }
+
+            return View(course);
+        }
+
+        public ActionResult ViewDeleted(int? SelectedDepartment)
+        {
+            var departments = db.Departments.OrderBy(q => q.Name).ToList();
+            ViewBag.SelectedDepartment = new SelectList(departments, "DepartmentID", "Name", SelectedDepartment);
+            int departmentID = SelectedDepartment.GetValueOrDefault();
+
+            IQueryable<Course> courses = db.Courses
+                .Where(c => (!SelectedDepartment.HasValue || c.DepartmentID == departmentID) && !c.IsActive)
+                .OrderBy(d => d.CourseID)
+                .Include(d => d.Department);
+            var sql = courses.ToString();
+            return View(courses.ToList());
+        }
+
+        public ActionResult RestoreDeleted(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Course course = db.Courses.Find(id);
+            if (course == null)
+            {
+                return HttpNotFound();
+            }
+            return View(course);
+        }
+
+        [HttpPost, ActionName("RestoreDeleted")]
+        [ValidateAntiForgeryToken]
+        public ActionResult RestoreDeletedPost(int? id)
+        {
+
+            Course course = db.Courses.Find(id);
+
+            course.IsActive = true;
+
+            db.Entry(course).State = System.Data.Entity.EntityState.Modified;
+
+            try
+            {
+                db.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+            catch (RetryLimitExceededException /* dex */)
+            {
+                //Log the error (uncomment dex variable name and add a line here to write a log.
+                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
+            }
+
+            return View(course);
+        }
+
         // GET: Course/Delete/5
         public ActionResult Delete(int? id)
         {

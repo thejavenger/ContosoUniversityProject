@@ -40,9 +40,15 @@ namespace ContosoUniversity.Controllers
                            select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                students = students.Where(s => s.LastName.Contains(searchString)
-                                       || s.FirstMidName.Contains(searchString));
+                students = students.Where(s => (s.LastName.Contains(searchString)
+                                       || s.FirstMidName.Contains(searchString)) && s.IsActive);
             }
+            else
+            {
+                students = students.Where(s => s.IsActive);
+            }
+
+
             switch (sortOrder)
             {
                 case "firstname_desc":
@@ -160,6 +166,144 @@ namespace ContosoUniversity.Controllers
             return View(studentToUpdate);
         }
 
+        public ActionResult SoftDelete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Student student = db.Students.Find(id);
+            if (student == null)
+            {
+                return HttpNotFound();
+            }
+            return View(student);
+        }
+
+        [HttpPost, ActionName("SoftDelete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult SoftDeletePost(int? id)
+        {
+            
+            Student student = db.Students.Find(id);
+
+            student.IsActive = false;
+
+            db.Entry(student).State = System.Data.Entity.EntityState.Modified;
+
+            try
+            {
+                db.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+            catch (RetryLimitExceededException /* dex */)
+            {
+                //Log the error (uncomment dex variable name and add a line here to write a log.
+                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
+            }
+
+            return View(student);
+        }
+
+        public ActionResult ViewDeleted(string sortOrder, string currentFilter, string searchString, int? page)
+        {
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.FirstNameSortParm = sortOrder == "firstname" ? "firstname_desc" : "firstname";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
+            var students = from s in db.Students
+                           select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                students = students.Where(s => (s.LastName.Contains(searchString)
+                                       || s.FirstMidName.Contains(searchString)) && !s.IsActive);
+            }
+            else
+            {
+                students = students.Where(s => !s.IsActive);
+            }
+
+
+            switch (sortOrder)
+            {
+                case "firstname_desc":
+                    students = students.OrderByDescending(s => s.FirstMidName);
+                    break;
+                case "firstname":
+                    students = students.OrderBy(s => s.FirstMidName);
+                    break;
+                case "date_desc":
+                    students = students.OrderByDescending(s => s.EnrollmentDate);
+                    break;
+                case "Date":
+                    students = students.OrderBy(s => s.EnrollmentDate);
+                    break;
+                case "name_desc":
+                    students = students.OrderByDescending(s => s.LastName);
+                    break;
+                default:  // Name ascending 
+                    students = students.OrderBy(s => s.LastName);
+                    break;
+            }
+
+            int pageSize = 15;
+            int pageNumber = (page ?? 1);
+            return View(students.ToPagedList(pageNumber, pageSize));
+        }
+
+        public ActionResult RestoreDeleted(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Student student = db.Students.Find(id);
+            if (student == null)
+            {
+                return HttpNotFound();
+            }
+            return View(student);
+        }
+
+        [HttpPost, ActionName("RestoreDeleted")]
+        [ValidateAntiForgeryToken]
+        public ActionResult RestoreDeletedPost(int? id)
+        {
+
+            Student student = db.Students.Find(id);
+
+            student.IsActive = true;
+
+            db.Entry(student).State = System.Data.Entity.EntityState.Modified;
+
+            try
+            {
+                db.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+            catch (RetryLimitExceededException /* dex */)
+            {
+                //Log the error (uncomment dex variable name and add a line here to write a log.
+                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
+            }
+
+            return View(student);
+        }
+
         // GET: Student/Delete/5
         public ActionResult Delete(int? id, bool? saveChangesError = false)
         {
@@ -197,6 +341,8 @@ namespace ContosoUniversity.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        
 
         protected override void Dispose(bool disposing)
         {

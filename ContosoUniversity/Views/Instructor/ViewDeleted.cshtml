@@ -4,12 +4,8 @@
     ViewBag.Title = "Instructors";
 }
 
-<h2>Instructors</h2>
+<h2>Deleted Instructors</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create") | 
-    @Html.ActionLink("View Deleted", "ViewDeleted")
-</p>
 <table class="table">
     <tr>
         <th>Last Name</th>
@@ -52,10 +48,7 @@
                 }
             </td>
             <td>
-                @Html.ActionLink("Select", "Index", new { id = item.ID }) |
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "SoftDelete", new { id = item.ID })
+                @Html.ActionLink("Restore", "RestoreDeleted", new { id = item.ID })
             </td>
         </tr>
     }
@@ -122,3 +115,8 @@
         }
     </table>
 }
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
