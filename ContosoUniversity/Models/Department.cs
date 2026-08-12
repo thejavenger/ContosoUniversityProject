@@ -25,7 +25,7 @@ namespace ContosoUniversity.Models
         [Display(Name = "Administrator")]
         public int? InstructorID { get; set; }
 
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; } = true;
 
         [Timestamp]
         public byte[] RowVersion { get; set; }

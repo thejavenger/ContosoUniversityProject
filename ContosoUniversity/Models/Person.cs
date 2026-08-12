@@ -30,7 +30,7 @@ namespace ContosoUniversity.Models
             }
         }
 
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; } = true;
 
     }
 }
