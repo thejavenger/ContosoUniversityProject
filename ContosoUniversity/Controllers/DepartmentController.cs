@@ -38,7 +38,7 @@ namespace ContosoUniversity.Controllers
             string query = "SELECT * FROM Department WHERE DepartmentID = @p0";
             Department department = await db.Departments.SqlQuery(query, id).SingleOrDefaultAsync();
 
-            if (department == null)
+            if (department == null || !department.IsActive)
             {
                 return HttpNotFound();
             }
@@ -78,7 +78,7 @@ namespace ContosoUniversity.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Department department = await db.Departments.FindAsync(id);
-            if (department == null)
+            if (department == null || !department.IsActive)
             {
                 return HttpNotFound();
             }
@@ -186,6 +186,7 @@ namespace ContosoUniversity.Controllers
             Department department = await db.Departments.FindAsync(id);
 
             department.IsActive = false;
+            department.DateDeleted = DateTime.Now;
 
             db.Entry(department).State = System.Data.Entity.EntityState.Modified;
 
@@ -233,6 +234,7 @@ namespace ContosoUniversity.Controllers
             Department department = await db.Departments.FindAsync(id);
 
             department.IsActive = true;
+            department.DateDeleted = null;
 
             db.Entry(department).State = System.Data.Entity.EntityState.Modified;
 

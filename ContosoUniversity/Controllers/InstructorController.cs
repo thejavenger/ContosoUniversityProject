@@ -63,7 +63,7 @@ namespace ContosoUniversity.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Instructor instructor = db.Instructors.Find(id);
-            if (instructor == null)
+            if (instructor == null || !instructor.IsActive)
             {
                 return HttpNotFound();
             }
@@ -113,7 +113,7 @@ namespace ContosoUniversity.Controllers
                 .Include(i => i.Courses)
                 .Where(i => i.ID == id)
                 .Single();
-            if (instructor == null)
+            if (instructor == null || !instructor.IsActive)
             {
                 return HttpNotFound();
             }
@@ -190,6 +190,7 @@ namespace ContosoUniversity.Controllers
                   .Single();
 
             instructor.IsActive = false;
+            instructor.DateDeleted = DateTime.Now;
 
             db.Entry(instructor).State = System.Data.Entity.EntityState.Modified;
 
@@ -270,6 +271,7 @@ namespace ContosoUniversity.Controllers
             Instructor instructor = db.Instructors.Find(id);
 
             instructor.IsActive = true;
+            instructor.DateDeleted = null;
 
             db.Entry(instructor).State = System.Data.Entity.EntityState.Modified;
 

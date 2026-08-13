@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ContosoUniversity.Models
 {
-    public abstract class Person
+    public abstract class Person : BaseModel
     {
         public int ID { get; set; }
 
@@ -30,7 +30,7 @@ namespace ContosoUniversity.Models
             }
         }
 
-        public bool IsActive { get; set; } = true;
+        //public bool IsActive { get; set; } = true;
 
     }
 }

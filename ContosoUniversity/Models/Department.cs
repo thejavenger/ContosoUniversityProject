@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ContosoUniversity.Models
 {
-    public class Department
+    public class Department : BaseModel
     {
         public int DepartmentID { get; set; }
 
@@ -25,7 +25,7 @@ namespace ContosoUniversity.Models
         [Display(Name = "Administrator")]
         public int? InstructorID { get; set; }
 
-        public bool IsActive { get; set; } = true;
+        //public bool IsActive { get; set; } = true;
 
         [Timestamp]
         public byte[] RowVersion { get; set; }

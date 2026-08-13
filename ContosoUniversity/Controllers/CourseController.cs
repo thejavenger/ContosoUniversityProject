@@ -37,7 +37,7 @@ namespace ContosoUniversity.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Course course = db.Courses.Find(id);
-            if (course == null)
+            if (course == null || !course.IsActive)
             {
                 return HttpNotFound();
             }
@@ -79,7 +79,7 @@ namespace ContosoUniversity.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Course course = db.Courses.Find(id);
-            if (course == null)
+            if (course == null || !course.IsActive)
             {
                 return HttpNotFound();
             }
@@ -137,6 +137,7 @@ namespace ContosoUniversity.Controllers
             Course course = db.Courses.Find(id);
 
             course.IsActive = false;
+            course.DateDeleted = DateTime.Now;
 
             db.Entry(course).State = System.Data.Entity.EntityState.Modified;
 
@@ -191,6 +192,7 @@ namespace ContosoUniversity.Controllers
             Course course = db.Courses.Find(id);
 
             course.IsActive = true;
+            course.DateDeleted = null;
 
             db.Entry(course).State = System.Data.Entity.EntityState.Modified;
 
