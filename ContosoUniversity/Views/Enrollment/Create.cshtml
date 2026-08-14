@@ -1,0 +1,73 @@
+﻿@model ContosoUniversity.Models.Enrollment
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Enroll to Course</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Enrollment</h4>
+    <hr />
+
+    <dl class="dl-horizontal">
+        <dt>
+            Course Title
+        </dt>
+
+        <dd>
+            @Html.ViewBag.CourseName
+        </dd>
+
+        <dt>
+            Student Name
+        </dt>
+
+        <dd>
+            @Html.ViewBag.StudentName
+        </dd>
+
+
+    </dl>
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @*Html.LabelFor(model => model.CourseID, "CourseID", htmlAttributes: new { @class = "control-label col-md-2" })*@
+        <div class="col-md-10">
+            @Html.HiddenFor(model => model.CourseID, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.CourseID } })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @*Html.LabelFor(model => model.StudentID, "StudentID", htmlAttributes: new { @class = "control-label col-md-2" })*@
+        <div class="col-md-10">
+            @Html.HiddenFor(model => model.StudentID, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.StudentID } }) @*@Html.DropDownList("StudentID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.StudentID, "", new { @class = "text-danger" })*@
+        </div>
+    </div>
+
+
+    @Html.HiddenFor(model => model.Grade, new { htmlAttributes = new { @class = "form-control" } })
+    <!--<div class="form-group">
+        @*@Html.LabelFor(model => model.Grade, htmlAttributes: new { @class = "control-label col-md-2" })*@
+        <div class="col-md-10">
+            @*Html.EnumDropDownListFor(model => model.Grade, htmlAttributes: new { @class = "form-control" })*@
+            @*Html.ValidationMessageFor(model => model.Grade, "", new { @class = "text-danger" })*@
+        </div>
+    </div>-->
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Enroll" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index", new { id = ViewBag.StudentID })
+</div>

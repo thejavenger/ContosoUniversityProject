@@ -50,6 +50,9 @@
                 @Html.ActionLink("Details", "Details", new { id = item.ID }) |
                 @Html.ActionLink("Delete", "SoftDelete", new { id = item.ID })
             </td>
+            <td>
+        @Html.ActionLink("Enroll to Course", "Index", "Enrollment", new { id = item.ID }, null)
+    </td>
         </tr>
     }
 
